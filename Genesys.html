@@ -48,10 +48,18 @@
 		});
 		
 		$('#open_map').bind('click', openMap1);
+		$('#open').bind('click', openApp);
+		
+		
 	});
 	
+	function openApp(){
+		window.open('file:///Users/Michael/Documents/workspace/WE/src/we/Genesys.html', '_blank');
+	}
+	
+	
 	function openMap1(){
-		window.open('file:///C:/Users/iris/Documents/GitHub/NBA/maps1.html', '_blank');
+		window.open('file:///Users/Michael/Documents/workspace/WE/src/we/maps1.html', '_blank');
 	}
 </script>
 
@@ -151,6 +159,8 @@
  	$(function() {
 		 $("#includedContent").load("maps1.html");
 	});
+	
+	
 	 
 </script>
 
@@ -298,7 +308,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 													data-content="Customer: My phone is missing
 																	Agent: So is mine.."><script
 															type="text/javascript">
-													document.write("#cellPhoneMissing");
+													document.write("#cellphonemissing");
 												</script></a></td>
 											</tr>
 											<tr>
@@ -307,7 +317,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 																	Customer: My charger sux
 																	Agent: you suck.."><script
 															type="text/javascript">
-													document.write("#needANewCharger");
+													document.write("#needanewcharger");
 												</script></a></td>
 											</tr>
 											<tr>
@@ -315,7 +325,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 													data-content="Customer: Im playing frisbee with my Ipad
 																	Agent: Where.."><script
 															type="text/javascript">
-													document.write("#frisbeeWithMyIpad");
+													document.write("#frisbeewithmyipad");
 												</script></a></td>
 											</tr>
 											<tr>
@@ -342,7 +352,7 @@ Customer: i need a lot of help with product
 						</div>
 						<div class="col-md-4">
 							<div class="panel panel-primary">
-								<div class="panel-heading">Charts</div>
+								<div class="panel-heading" id="open">Charts</div>
 								<div class="panel-body">
 									<div id="chart_div" style="width: 200px; height: 250px;"></div>
 									<div id="chart_div2"></div>
