@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Trending Locations</title>
+    <style class=â€col-md-4â€>
+      html, body, #map-canvas {
+        height: 80%;
+        width: 80%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+    <script></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script>
+function initialize() {
+  var myLatlng = new google.maps.LatLng(43.659034, -79.375430);
+  var mapOptions = {
+    zoom: 10,
+    center: myLatlng
+  }
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(43.659034, -79.505430),
+      map: map,
+      title: '#cantPlugInCables'
+  });
+  var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(43.679134, -79.565430),
+      map: map,
+      title: '#phoneInTheToilet'
+  });
+  var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(43.698234, -79.376430),
+      map: map,
+      title: '#internetNotWorking'
+  });
+  var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(43.678934, -79.373630),
+      map: map,
+      title: '#iWantAnIphone'
+  });
+  var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(43.659034, -79.309530),
+      map: map,
+      title: '#cableBoxBroken'
+  });
+  var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(43.651034, -79.375290),
+      map: map,
+      title: '#punchedMyTV'
+  });
+  var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(43.651034, -79.375290),
+      map: map,
+      title: '#ateMyIpodShuffle'
+  });
+  var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(43.653034, -79.400290),
+      map: map,
+      title: '#NFLSundayTicketNotWorking'
+  });
+  var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(43.653034, -79.401290),
+      map: map,
+      title: '#NFLSundayTicketNotWorking'
+  });
+  var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(43.653034, -79.402290),
+      map: map,
+      title: '#NFLSundayTicketNotWorking'
+  });
+  var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(43.653034, -79.403290),
+      map: map,
+      title: '#NFLSundayTicketNotWorking'
+  });
+  var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(43.653034, -79.404290),
+      map: map,
+      title: '#NFLSundayTicketNotWorking'
+  });
+  var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(43.654034, -79.400290),
+      map: map,
+      title: '#NFLSundayTicketNotWorking'
+  });
+}
+
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
+</html>

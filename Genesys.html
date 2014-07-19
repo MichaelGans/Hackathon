@@ -2,16 +2,16 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 
 <title>Your Data Hub</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="Genesys.css" rel="stylesheet">
 <link href="starter-template.css" rel="stylesheet">
 
-
-
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
+
 
 <script src="js/ie-emulation-modes-warning.js" type="text/javascript"></script>
 <script src="js/ie10-viewport-bug-workaround.js" type="text/javascript"></script>
@@ -46,7 +46,13 @@
 		$(".popover-examples p").popover({
 			placement : 'right'
 		});
+		
+		$('#open_map').bind('click', openMap1);
 	});
+	
+	function openMap1(){
+		window.open('file:///C:/Users/iris/Documents/GitHub/NBA/maps1.html', '_blank');
+	}
 </script>
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -65,36 +71,33 @@
 
 		// Create the data table.
 		var data = new google.visualization.DataTable();
-		data.addColumn('string', 'Topping');
-		data.addColumn('number', 'Slices');
-		data.addRows([ [ 'Mushrooms', 3 ], [ 'Onions', 1 ], [ 'Olives', 1 ],
-				[ 'Zucchini', 1 ], [ 'Pepperoni', 2 ] ]);
+		data.addColumn('string', 'Tweets');
+		data.addColumn('number', 'per');
+		data.addRows([ [ '#NFLSundayTicketNotWorking', 3 ], [ '#phoneInTheToilet', 1 ], [ '#internetNotWorking', 1 ],
+				[ '#iWantAnIphone', 1 ], [ 'other', 2 ] ]);
 		// Create the data table.
 		var data2 = new google.visualization.DataTable();
-		data2.addColumn('string', 'Topping');
-		data2.addColumn('number', 'Slices');
-		data2.addRows([ [ 'Mushrooms', 3 ], [ 'Onions', 1 ], [ 'Olives', 15 ],
-				[ 'Zucchini', 1 ], [ 'Pepperoni', 2 ] ]);
+		data2.addColumn('string', 'Age');
+		data2.addColumn('number', 'per');
+		data2.addRows([ [ '10-20', 3 ], [ '22-30', 1 ], [ '31-40', 15 ],
+				[ '41-50', 1 ], [ '51+', 2 ] ]);
 
-		var data3 = new google.visualization.DataTable();
-		data3.addColumn('string', 'Year');
-		data3.addColumn('number', 'Sales');
-		data3.addColumn('number', 'Expenses');
-		data3.addRows([ [ '2004', 1000, 400 ], [ '2005', 1170, 460 ],
-				[ '2006', 860, 580 ], [ '2007', 1030, 540 ] ]);
-		
 
-		
-		
 		// Set chart options
 		var options = {
-			'title' : 'How Much Pizza I Ate Last Night',
+			'title' : 'Trending Requests',
 			'width' : 325,
 			'height' : 325,
-			fontSize: 8
+			fontSize : 8
 		};
+		
+		var options2 = {
+				'title' : 'Age Distribution of Requests',
+				'width' : 325,
+				'height' : 325,
+				fontSize : 8
+			};
 		// Set chart options
-	
 
 		// Instantiate and draw our chart, passing in some options.
 		var chart = new google.visualization.PieChart(document
@@ -102,150 +105,329 @@
 		chart.draw(data, options);
 		var chart2 = new google.visualization.PieChart(document
 				.getElementById('chart_div2'));
-		chart2.draw(data2, options);
-
-		
-		
+		chart2.draw(data2, options2);
 
 	}
-	
-	/* var map;
-	function initialize() {
+
+</script>
+
+<script type="text/javascript">
+	var trend1;
+	var trend2;
+	var trend3;
+	var trend4;
+	var trend5;
+	var trend6;
+	var trend7;
+	var trend8;
+	var trend9;
+	var trend10;
+
+	readTextFile("data2.txt");
+	function readTextFile(file) {
+		var rawFile = new XMLHttpRequest();
+		rawFile.open("GET", file, false);
+		rawFile.onreadystatechange = function() {
+			if (rawFile.readyState === 4) {
+				if (rawFile.status === 200 || rawFile.status == 0) {
+					var allText = rawFile.responseText;
+					var res = allText.split(" ");
+					trend1 = res[0];
+					trend2 = res[1];
+					trend3 = res[2];
+					trend4 = res[3];
+					trend5 = res[4];
+					trend6 = res[5];
+					trend7 = res[6];
+					trend8 = res[7];
+					trend9 = res[8];
+					trend10 = res[9];
+				}
+			}
+		}
+		rawFile.send(null);
+	}
+
+ 	$(function() {
+		 $("#includedContent").load("maps1.html");
+	});
+	 
+</script>
+
+<script type="text/javascript">
+function initialize() {
+	  var myLatlng = new google.maps.LatLng(43.659034, -79.375430);
 	  var mapOptions = {
-	    zoom: 8,
-	    center: new google.maps.LatLng(-34.397, 150.644)
-	  };
-	  map = new google.maps.Map(document.getElementById('map-canvas'),
-	      mapOptions);
-	}
+	    zoom: 10,
+	    center: myLatlng
+	  }
+	  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-	google.maps.event.addDomListener(window, 'load', initialize); */
-</script>
 
-<script>
-readTextFile("data2.txt");
-function readTextFile(file)
-{
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                var allText = rawFile.responseText;
-                var res = allText.split(" ");
-                var trend1 = res[0];
-                var trend2 = res[1];
-                var trend3 = res[2];
-                var trend4 = res[3];
-                var trend5 = res[4];
-                var trend6 = res[5];
-                var trend7 = res[6];
-                var trend8 = res[7];
-                var trend9 = res[8];
-                var trend10 = res[9];
-
-                //$('#t1').val(trend1);
-                
-                alert(trend1);
-                alert(trend2);
-                alert(trend3);
-                alert(trend4);
-            }
-        }
-    }
-    rawFile.send(null);
 }
+google.maps.event.addDomListener(window, 'load', initialize);
 
 </script>
-
 
 </head>
 <body>
 	<form action="">
 		<div class="outer_container">
 			<div class="container bs-docs-container">
+				<div class="section">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="panel panel-primary">
+								<div class="panel-heading" id="open_map">Trending</div>
+								<div class="panel-body">
+									<div class="popover-examples">
+										<table class="table table-hover" id="trending_table">
 
-				<div class="row">
-					<div class="col-md-4">
-						<div class="panel panel-primary">
-							<div class="panel-heading">Trending</div>
-							<div class="panel-body">
-								<div class="popover-examples">
-									<table class="table table-hover" id="trending_table">
 
+											<tr class="popover-examples">
+												<td><a id="t1" data-toggle="popover"
+													title="Trending #1"
+													data-content="Chat number 1: Customer: i am having an issue with product 
+															Agent: i am having an issue with product to you too!
+															Customer: The NFL sunday ticket is not working.
+															Agent: I dont really care. But I can help. I know Magic.
+															Customer: wow! you fixed it thx:)
+															"><script
+															
+															type="text/javascript">
+													document.write(trend1);
+												</script></a></td>
+											</tr>
+											<!-- #cantPlugInCables -->
+											<tr>
+												<td><a data-toggle="popover" title="Trending #2"
+													data-content="
+															Chat number 1: Customer: i am having an issue with my phone 
+															Agent: is it in the toilet?
+															Customer: Its in the toilet.
+															Agent: Put your hand in there
+															"><script
+															type="text/javascript">
+													document.write(trend2);
+												</script></a></td>
+											</tr>
+											<tr>
+												<td><a data-toggle="popover" title="Trending #3"
+													data-content="
+															Chat number 1: Customer: my internet is horrible 
+															Agent: you're horrible.
+															Customer: thanks...
+															Agent: no problem"><script
+															type="text/javascript">
+													document.write(trend3);
+												</script></a></td>
+											</tr>
+											<tr>
+												<td><a data-toggle="popover" title="Trending #4"
+													data-content="
+															Chat number 1: Customer: my phone sux. give me an iphone
+															Agent: ok.
+															Customer: thanks...
+															Agent: no problem"><script
+															type="text/javascript">
+													document.write(trend4);
+												</script></a></td>
+											</tr>
+											<tr>
+												<td><a data-toggle="popover" title="Trending #5"
+													data-content="
+													Chat number 1: Customer: I threw my cable box at the window. can you fix it?
+															Agent: We're Rogers, we don't fix windows...
+															Customer: ok.
+															Agent: ok.
 
-										<tr class="popover-examples">
-											<td><a id="t1" data-toggle="popover" title="Trending #1"
-												data-content="THIS IS AN EXTREMLY LONG STING SDFKLDSFDS HFKJ HDSLK FHL  KDHLFKHD SHFKLSDHFKJLH DSKFHD SKHFDSKLHFLK SDHFKJSDHL FDSHF HLDS "><script>document.write(trend1);</script></a></td>
-										</tr> <!-- #cantPlugInCables -->
-										<tr>
-											<td><a data-toggle="popover" title="Trending #2"
-												data-content="Default popover">#phoneInTheToilet</a></td>
+																"><script
+															type="text/javascript">
+													document.write(trend5);
+												</script></a></td>
+											</tr>
+											<tr>
+												<td><a data-toggle="popover" title="Trending #6"
+													data-content="
+															Customer: upgrade pls
+															Agent: ok
+															"><script
+															type="text/javascript">
+													document.write(trend6);
+												</script></a></td>
+											</tr>
+											<tr>
+												<td><a data-toggle="popover" title="Trending #7"
+													data-content="
+															Customer: phone is broken
+															Agent: good luck
+															"><script
+															type="text/javascript">
+													document.write(trend7);
+												</script></a></td>
+											</tr>
+											<tr>
+												<td><a data-toggle="popover" title="Trending #8"
+													data-content="Customer: Tsn not working
+																	Agent: neither is this job..
+													
+													
+															"><script
+															type="text/javascript">
+													document.write(trend8);
+												</script></a></td>
+											</tr>
+											<tr>
+												<td><a data-toggle="popover" title="Trending #9"
+													data-content="Customer: I punched my tv
+																	Agent: ok.."><script
+															type="text/javascript">
+													document.write(trend9);
+												</script></a></td>
+											</tr>
+											<tr>
+												<td><a data-toggle="popover" title="Trending #10"
+													data-content="Customer: I ate my shuffle.
+																	Agent: Can you hear anything?"><script
+															type="text/javascript">
+													document.write(trend10);
+												</script></a></td>
+											</tr>
+											<tr>
+												<td><a data-toggle="popover" title="Trending #11"
+													data-content="Customer: My phone is missing
+																	Agent: So is mine.."><script
+															type="text/javascript">
+													document.write("#cellPhoneMissing");
+												</script></a></td>
+											</tr>
+											<tr>
+												<td><a data-toggle="popover" title="Trending #12"
+													data-content="
+																	Customer: My charger sux
+																	Agent: you suck.."><script
+															type="text/javascript">
+													document.write("#needANewCharger");
+												</script></a></td>
+											</tr>
+											<tr>
+												<td><a data-toggle="popover" title="Trending #13"
+													data-content="Customer: Im playing frisbee with my Ipad
+																	Agent: Where.."><script
+															type="text/javascript">
+													document.write("#frisbeeWithMyIpad");
+												</script></a></td>
+											</tr>
+											<tr>
+												<td><a data-toggle="popover" title="Trending #14"
+													data-content="Chat number 1:
+Customer: i am having an issue with product
+Agent: i am having an issue with product to you too!
+Customer: please help me with product. my screen is broken.
+Agent: please help me with product to you too!
+Customer: i need a lot of help with product
+"><script
+															type="text/javascript">
+													document.write("#screenBroke");
+												</script></a></td>
+											</tr>
+
+										</table>
+										<div id="map-canvas"></div>
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="panel panel-primary">
+								<div class="panel-heading">Charts</div>
+								<div class="panel-body">
+									<div id="chart_div" style="width: 200px; height: 250px;"></div>
+									<div id="chart_div2"></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="panel panel-primary">
+								<div class="panel-heading">Current Activity</div>
+								<div class="panel-body">
+
+									<table class="table table-hover">
+										<tr class="active">
+											<td>Agents on Line: 908</td>
 										</tr>
-										<tr>
-											<td><a data-toggle="popover" title="Trending #3"
-												data-content="Default popover">#internetNotWorking</a></td>
+										<tr class="success">
+											<td>Clients on Line:243</td>
 										</tr>
-										<tr>
-											<td><a data-toggle="popover" title="Trending #4"
-												data-content="Default popover">#iWantAnIphone</a></td>
+										<tr class="warning">
+											<td>Clients on Hold:39</td>
 										</tr>
-										<tr>
-											<td><a data-toggle="popover" title="Trending #5"
-												data-content="Default popover">#cableBoxBroken</a></td>
+										<tr class="danger">
+											<td>Calls completed: 483</td>
 										</tr>
-										<tr>
-											<td><a data-toggle="popover" title="Trending #6"
-												data-content="Default popover">#upgradeAccount</a></td>
+										<tr class="info">
+											<td>Current Longest Call:68 mins</td>
 										</tr>
-										<tr>
-											<td><a data-toggle="popover" title="Trending #7"
-												data-content="Default popover">#phoneBroken</a></td>
+										<tr class="active">
+											<td>Current Longest Wait: 12 mins</td>
 										</tr>
-										<tr>
-											<td><a data-toggle="popover" title="Trending #8"
-												data-content="Default popover">#TSNnotWorking</a></td>
+										<tr class="success">
+											<td>Average Call: 16 minutes</td>
 										</tr>
-										<tr>
-											<td><a data-toggle="popover" title="Trending #9"
-												data-content="Default popover">#punchedMyTV</a></td>
+										<tr class="warning">
+											<td>Calls this hour: 435</td>
 										</tr>
-										<tr>
-											<td><a data-toggle="popover" title="Trending #10"
-												data-content="Default popover">#ateMyIpodShuffle</a></td>
+										<tr class="danger">
+											<td>Calls previous hour:344</td>
+										</tr>
+										<tr class="info">
+											<td>Calls today:544</td>
+										</tr>
+										<tr class="success">
+											<td>Calls this week:5433</td>
+										</tr>
+										<tr class="warning">
+											<td>Time Until Close: 5:40 mins</td>
+										</tr>
+										<tr class="danger">
+											<td>Returned calls: 233</td>
+										</tr>
+										<tr class="info">
+											<td>Taget Goal Reached: No</td>
 										</tr>
 
 									</table>
-									<div id="map-canvas"></div>
-									
 								</div>
-
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="panel panel-primary">
-							<div class="panel-heading">Charts</div>
-							<div class="panel-body">
-								<div id="chart_div" style="width: 200px; height: 250px;"></div>
-								<div id="chart_div2"></div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="panel panel-primary">
-							<div class="panel-heading">Current Activity</div>
-							<div class="panel-body">
-
-
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>
+			<!-- <div class="section">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="panel panel-primary">
+							<div class="panel-heading">Trending</div>
+							<div class="panel-body"></div>
+														<div id ="includedContent" heigth="40px" width="50px"></div>
+
+							<div id="map-canvas"></div>
+
+						</div>
+					</div>
+				</div>
+
+
+
+
+			</div> -->
 		</div>
+
+
+
+
 	</form>
 
 
