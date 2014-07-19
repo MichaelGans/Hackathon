@@ -1,0 +1,259 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Your Data Hub</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="Genesys.css" rel="stylesheet">
+<link href="starter-template.css" rel="stylesheet">
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
+<script src="js/ie-emulation-modes-warning.js" type="text/javascript"></script>
+<script src="js/ie10-viewport-bug-workaround.js" type="text/javascript"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+	type="text/javascript"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"
+	type="text/javascript"></script>
+
+<script type="text/javascript" src="Genesys.js"></script>
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-2.1.1.js"></script>
+
+
+
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+	type="text/javascript"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"
+	type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".popover-examples a").popover({
+			placement : 'right'
+		});
+		$(".popover-examples p").popover({
+			placement : 'right'
+		});
+	});
+</script>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+	google.load('visualization', '1.0', {
+		'packages' : [ 'corechart' ]
+	});
+
+	// Set a callback to run when the Google Visualization API is loaded.
+	google.setOnLoadCallback(drawChart);
+
+	// Callback that creates and populates a data table,
+	// instantiates the pie chart, passes in the data and
+	// draws it.
+	function drawChart() {
+
+		// Create the data table.
+		var data = new google.visualization.DataTable();
+		data.addColumn('string', 'Topping');
+		data.addColumn('number', 'Slices');
+		data.addRows([ [ 'Mushrooms', 3 ], [ 'Onions', 1 ], [ 'Olives', 1 ],
+				[ 'Zucchini', 1 ], [ 'Pepperoni', 2 ] ]);
+		// Create the data table.
+		var data2 = new google.visualization.DataTable();
+		data2.addColumn('string', 'Topping');
+		data2.addColumn('number', 'Slices');
+		data2.addRows([ [ 'Mushrooms', 3 ], [ 'Onions', 1 ], [ 'Olives', 15 ],
+				[ 'Zucchini', 1 ], [ 'Pepperoni', 2 ] ]);
+
+		var data3 = new google.visualization.DataTable();
+		data3.addColumn('string', 'Year');
+		data3.addColumn('number', 'Sales');
+		data3.addColumn('number', 'Expenses');
+		data3.addRows([ [ '2004', 1000, 400 ], [ '2005', 1170, 460 ],
+				[ '2006', 860, 580 ], [ '2007', 1030, 540 ] ]);
+		
+
+		
+		
+		// Set chart options
+		var options = {
+			'title' : 'How Much Pizza I Ate Last Night',
+			'width' : 325,
+			'height' : 325,
+			fontSize: 8
+		};
+		// Set chart options
+	
+
+		// Instantiate and draw our chart, passing in some options.
+		var chart = new google.visualization.PieChart(document
+				.getElementById('chart_div'));
+		chart.draw(data, options);
+		var chart2 = new google.visualization.PieChart(document
+				.getElementById('chart_div2'));
+		chart2.draw(data2, options);
+
+		
+		
+
+	}
+	
+	/* var map;
+	function initialize() {
+	  var mapOptions = {
+	    zoom: 8,
+	    center: new google.maps.LatLng(-34.397, 150.644)
+	  };
+	  map = new google.maps.Map(document.getElementById('map-canvas'),
+	      mapOptions);
+	}
+
+	google.maps.event.addDomListener(window, 'load', initialize); */
+</script>
+
+<script>
+readTextFile("data2.txt");
+function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                var res = allText.split(" ");
+                var trend1 = res[0];
+                var trend2 = res[1];
+                var trend3 = res[2];
+                var trend4 = res[3];
+                var trend5 = res[4];
+                var trend6 = res[5];
+                var trend7 = res[6];
+                var trend8 = res[7];
+                var trend9 = res[8];
+                var trend10 = res[9];
+
+                //$('#t1').val(trend1);
+                
+                alert(trend1);
+                alert(trend2);
+                alert(trend3);
+                alert(trend4);
+            }
+        }
+    }
+    rawFile.send(null);
+}
+
+</script>
+
+
+</head>
+<body>
+	<form action="">
+		<div class="outer_container">
+			<div class="container bs-docs-container">
+
+				<div class="row">
+					<div class="col-md-4">
+						<div class="panel panel-primary">
+							<div class="panel-heading">Trending</div>
+							<div class="panel-body">
+								<div class="popover-examples">
+									<table class="table table-hover" id="trending_table">
+
+
+										<tr class="popover-examples">
+											<td><a id="t1" data-toggle="popover" title="Trending #1"
+												data-content="THIS IS AN EXTREMLY LONG STING SDFKLDSFDS HFKJ HDSLK FHL  KDHLFKHD SHFKLSDHFKJLH DSKFHD SKHFDSKLHFLK SDHFKJSDHL FDSHF HLDS "><script>document.write(trend1);</script></a></td>
+										</tr> <!-- #cantPlugInCables -->
+										<tr>
+											<td><a data-toggle="popover" title="Trending #2"
+												data-content="Default popover">#phoneInTheToilet</a></td>
+										</tr>
+										<tr>
+											<td><a data-toggle="popover" title="Trending #3"
+												data-content="Default popover">#internetNotWorking</a></td>
+										</tr>
+										<tr>
+											<td><a data-toggle="popover" title="Trending #4"
+												data-content="Default popover">#iWantAnIphone</a></td>
+										</tr>
+										<tr>
+											<td><a data-toggle="popover" title="Trending #5"
+												data-content="Default popover">#cableBoxBroken</a></td>
+										</tr>
+										<tr>
+											<td><a data-toggle="popover" title="Trending #6"
+												data-content="Default popover">#upgradeAccount</a></td>
+										</tr>
+										<tr>
+											<td><a data-toggle="popover" title="Trending #7"
+												data-content="Default popover">#phoneBroken</a></td>
+										</tr>
+										<tr>
+											<td><a data-toggle="popover" title="Trending #8"
+												data-content="Default popover">#TSNnotWorking</a></td>
+										</tr>
+										<tr>
+											<td><a data-toggle="popover" title="Trending #9"
+												data-content="Default popover">#punchedMyTV</a></td>
+										</tr>
+										<tr>
+											<td><a data-toggle="popover" title="Trending #10"
+												data-content="Default popover">#ateMyIpodShuffle</a></td>
+										</tr>
+
+									</table>
+									<div id="map-canvas"></div>
+									
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="panel panel-primary">
+							<div class="panel-heading">Charts</div>
+							<div class="panel-body">
+								<div id="chart_div" style="width: 200px; height: 250px;"></div>
+								<div id="chart_div2"></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="panel panel-primary">
+							<div class="panel-heading">Current Activity</div>
+							<div class="panel-body">
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</form>
+
+
+
+
+
+
+
+
+</body>
+</html>

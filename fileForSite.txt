@@ -1,0 +1,173 @@
+Chat number 1:
+Customer: i am having an issue with product1
+Agent: i am having an issue with product1 to you too!
+Customer: please help me with product1
+Agent: please help me with product1 to you too!
+Customer: i need a lot of help with product1
+Agent: i need a lot of help with product1 to you too!
+Customer: product1 wont turn on
+Agent: product1 wont turn on to you too!
+Customer: the light is blinking on product 1
+Agent: the light is blinking on product 1 to you too!
+Customer: you are not helping
+Agent: you are not helping to you too!
+
+Chat number 2:
+Customer: chat1
+Agent: chat1 to you too!
+
+Chat number 3:
+Customer: 1
+Customer: 2
+Agent: 1 to you too!
+Customer: 3
+Agent: 2 to you too!
+Agent: 3 to you too!
+Customer: 4
+Agent: 4 to you too!
+Customer: 5
+Agent: 5 to you too!
+Customer: 6
+Customer: 7
+Customer: 8
+Agent: 6 to you too!
+Agent: 7 to you too!
+Agent: 8 to you too!
+Customer: 9
+Agent: 9 to you too!
+Customer: 10
+Customer: 11
+Agent: 10 to you too!
+Agent: 11 to you too!
+Customer: 12
+Agent: 12 to you too!
+Customer: 13
+Customer: 14
+Agent: 13 to you too!
+Agent: 14 to you too!
+Customer: 15
+Agent: 15 to you too!
+Customer: 16
+Customer: 17
+Agent: 16 to you too!
+Customer: 18
+Agent: 18 to you too!
+Agent: 17 to you too!
+Customer: 19
+Agent: 19 to you too!
+Customer: 20
+
+Chat number 4:
+Customer: chat3
+Agent: chat3 to you too!
+
+Chat number 5:
+Customer: chat2
+Agent: chat2 to you too!
+
+Chat number 6:
+null
+Chat number 7:
+Customer: 1
+Agent: 1 to you too!
+
+
+Trends
+
+1=3
+
+10=1
+
+11=1
+
+12=1
+
+13=1
+
+14=1
+
+15=1
+
+16=1
+
+17=1
+
+18=1
+
+19=1
+
+2=1
+
+20=1
+
+3=1
+
+4=1
+
+5=1
+
+6=1
+
+7=1
+
+8=1
+
+9=1
+
+a=1
+
+am=1
+
+an=1
+
+are=1
+
+blinking=1
+
+chat1=1
+
+chat2=1
+
+chat3=1
+
+having=1
+
+help=2
+
+helping=1
+
+i=2
+
+is=1
+
+issue=1
+
+light=1
+
+lot=1
+
+me=1
+
+need=1
+
+not=1
+
+of=1
+
+on=2
+
+please=1
+
+product=1
+
+product1=4
+
+the=1
+
+turn=1
+
+with=3
+
+wont=1
+
+you=1
